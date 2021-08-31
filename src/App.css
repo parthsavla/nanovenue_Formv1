@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -27,7 +28,19 @@
 .App-link {
   color: #61dafb;
 }
-
+.imageLine{
+  width: 60%;
+  margin-bottom:1em;
+}
+.menu-opt{
+ margin: auto;
+}
+.txtPar{
+  width: 80%;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +48,72 @@
   to {
     transform: rotate(360deg);
   }
+}
+.f1{
+  margin-bottom: 10em;
+
+  
+}
+.inputBox{
+  border-radius: 7px;
+  outline: none;
+  border: thistle solid 2px;
+}
+.inputBox:focus{
+  border: 1px solid #B1288E;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 4px rgba(227, 33, 208, 0.25);
+}
+
+.l1{
+  margin-right:2em;
+}
+
+.l2{
+  margin-top: 2em;
+  margin-bottom: 1.5em;
+}
+.secondFormContainer{
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto;
+}
+.subjectOptions{
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+.resultContainer{
+  margin-left: -8em;
+  grid-row: span 9;
+  padding-bottom: 2em;
+}
+.inputBoxSG{
+  border-radius: 7px;
+  outline: none;
+  border: thistle solid 2px;
+  width: 7%;
+  margin-left: 2em;
+}
+.inputBoxSG:focus{
+  border: 1px solid #B1288E;
+  box-sizing: border-box;
+  box-shadow: 2px 5px 5px rgba(227, 33, 208, 0.25);
+}
+.resultContainer{
+  background-color: rgba(227, 33, 208, 0.25);
+  border-radius: 20px;
+}
+
+/**style for the submit button on the collection form**/
+
+.submitBtn{
+  border: #B1288E solid 2px;
+  border-radius: 20px;
+  width: 111px;
+  height: 38px;
+  background-color: #b1288f3a;
+  float: right;
+  margin-right: 10em;
+  margin-top: 1.5em;
 }
