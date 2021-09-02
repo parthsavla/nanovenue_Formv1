@@ -1,5 +1,6 @@
-import awe from './images/awe.svg'
-import React, { useState } from 'react'
+import awe from './images/awe.svg';
+import React from 'react';
+
 
 class FormBody extends React.Component {
     constructor(props) {
@@ -35,6 +36,69 @@ class FormBody extends React.Component {
         this.setState({[nam]: val});
         console.log(nam,val);
       }
+      DropDown(stateVar){
+       return( <div>
+            <select name={stateVar}  className="inputBox" onChange={this.myChangeHandler}> 
+                                    <optgroup label="Cluster group 1">
+                                        <option disabled selected value> -- select an option -- </option>
+                                        <option value="English">English</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Kiswahili">Kiswahili</option>
+                                    </optgroup>
+                                    <optgroup label="Cluster group 2">
+                                        <option value="Chemistry">Chemistry</option>
+                                        <option value="Biology">Biology</option>
+                                        <option value="Physics">Physics</option>
+                                    </optgroup>
+                                    <optgroup label="Cluster group 3">
+                                        <option value="History and Government">History and Government</option>
+                                        <option value="Geography">Geography</option>
+                                        <option value="Christian Religious Education">Christian Religious Education</option>
+                                        <option value="Islamic Religious Education">Islamic Religious Education</option>
+                                        <option value="Hindu Religious Study">Hindu Religious Study</option>
+                                    </optgroup>
+                                    <optgroup label="Cluster group 4">
+                                        <option value="Home Science">Home Science</option>
+                                        <option value="Art and Design">Art and Design</option>
+                                        <option value="Agriculture">Agriculture</option>
+                                        <option value="Woodwork">Woodwork</option>
+                                        <option value="Metalwork">Metalwork</option>
+                                        <option value="Building Construction">Building Construction</option>
+                                        <option value="Power Mechanics">Power Mechanics</option>
+                                        <option value="Electricity">Electricity</option>
+                                        <option value="Drawing And Design">Drawing And Design</option>
+                                        <option value="Aviation Technology">Aviation Technology</option>
+                                        <option value="Computer Studies">Computer Studies</option>
+                                    </optgroup>
+                                    <optgroup label="Cluster group 5">
+                                        <option value="French">French</option>
+                                        <option value="German">German</option>
+                                        <option value="Arabic">Arabic</option>
+                                        <option value="Kenya Sign Language">Kenya Sign Language</option>
+                                        <option value="Music">Music</option>
+                                        <option value="Business Studies">Business Studies</option>
+                                    </optgroup>
+                                </select>
+        </div>
+        )    }
+      CheckToDisplayOpt(sn,sg,sNum,subjectLable,dropDownMenu,subjectGrade){
+        if(sn && sg){
+            sNum = <div className="subjectOptions"><lable className="l1">{subjectLable}</lable>{dropDownMenu}<input type="text" onChange={this.myChangeHandler} name={subjectGrade} className="inputBoxSG"></input></div>;
+
+            return sNum;
+        }else{
+            sNum = '';
+            return sNum;
+        }
+      }
+      CheckToDisplayResults(sn,sg,subjectDisName){
+        if(sn && sg){
+            return subjectDisName = <div>{sn} ------ {sg}</div>;
+        }else{
+            return subjectDisName = '';
+        }
+      }
+     
     render(){
         
         let subTwo = '';
@@ -54,440 +118,20 @@ class FormBody extends React.Component {
         let subNine = '';
         let subEightDisplay = '';
         let subNineDisplay = '';
-        let dropDownMenu1 = <select name="subjectOne" onChange={this.myChangeHandler} className="inputBox"> 
-                                <optgroup label="Cluster group 1">
-                                    <option value=""></option>
-                                    <option value="English">English</option>
-                                    <option value="Mathematics">Mathematics</option>
-                                    <option value="Kiswahili">Kiswahili</option>
-                                </optgroup>
-                                <optgroup label="Cluster group 2">
-                                    <option value="Chemistry">Chemistry</option>
-                                    <option value="Biology">Biology</option>
-                                    <option value="Physics">Physics</option>
-                                </optgroup>
-                                <optgroup label="Cluster group 3">
-                                    <option value="History and Government">History and Government</option>
-                                    <option value="Geography">Geography</option>
-                                    <option value="Christian Religious Education">Christian Religious Education</option>
-                                    <option value="Islamic Religious Education">Islamic Religious Education</option>
-                                    <option value="Hindu Religious Study">Hindu Religious Study</option>
-                                </optgroup>
-                                <optgroup label="Cluster group 4">
-                                    <option value="Home Science">Home Science</option>
-                                    <option value="Art and Design">Art and Design</option>
-                                    <option value="Agriculture">Agriculture</option>
-                                    <option value="Woodwork">Woodwork</option>
-                                    <option value="Metalwork">Metalwork</option>
-                                    <option value="Building Construction">Building Construction</option>
-                                    <option value="Power Mechanics">Power Mechanics</option>
-                                    <option value="Electricity">Electricity</option>
-                                    <option value="Drawing And Design">Drawing And Design</option>
-                                    <option value="Aviation Technology">Aviation Technology</option>
-                                    <option value="Computer Studies">Computer Studies</option>
-                                </optgroup>
-                                <optgroup label="Cluster group 5">
-                                    <option value="French">French</option>
-                                    <option value="German">German</option>
-                                    <option value="Arabic">Arabic</option>
-                                    <option value="Kenya Sign Language">Kenya Sign Language</option>
-                                    <option value="Music">Music</option>
-                                    <option value="Business Studies">Business Studies</option>
-                                </optgroup>
-                            </select>;
-        let dropDownMenu2 = <select name="subjectTwo" onChange={this.myChangeHandler} className="inputBox"> 
-       <optgroup label="Cluster group 1">
-           <option value=""></option>
-           <option value="English">English</option>
-           <option value="Mathematics">Mathematics</option>
-           <option value="Kiswahili">Kiswahili</option>
-       </optgroup>
-       <optgroup label="Cluster group 2">
-           <option value="Chemistry">Chemistry</option>
-           <option value="Biology">Biology</option>
-           <option value="Physics">Physics</option>
-       </optgroup>
-       <optgroup label="Cluster group 3">
-           <option value="History and Government">History and Government</option>
-           <option value="Geography">Geography</option>
-           <option value="Christian Religious Education">Christian Religious Education</option>
-           <option value="Islamic Religious Education">Islamic Religious Education</option>
-           <option value="Hindu Religious Study">Hindu Religious Study</option>
-       </optgroup>
-       <optgroup label="Cluster group 4">
-           <option value="Home Science">Home Science</option>
-           <option value="Art and Design">Art and Design</option>
-           <option value="Agriculture">Agriculture</option>
-           <option value="Woodwork">Woodwork</option>
-           <option value="Metalwork">Metalwork</option>
-           <option value="Building Construction">Building Construction</option>
-           <option value="Power Mechanics">Power Mechanics</option>
-           <option value="Electricity">Electricity</option>
-           <option value="Drawing And Design">Drawing And Design</option>
-           <option value="Aviation Technology">Aviation Technology</option>
-           <option value="Computer Studies">Computer Studies</option>
-       </optgroup>
-       <optgroup label="Cluster group 5">
-           <option value="French">French</option>
-           <option value="German">German</option>
-           <option value="Arabic">Arabic</option>
-           <option value="Kenya Sign Language">Kenya Sign Language</option>
-           <option value="Music">Music</option>
-           <option value="Business Studies">Business Studies</option>
-       </optgroup>
-   </select>;
-        let dropDownMenu3 = <select name="subjectThree" onChange={this.myChangeHandler} className="inputBox"> 
-        <optgroup label="Cluster group 1">
-        <option value=""></option>
-            <option value="English">English</option>
-            <option value="Mathematics">Mathematics</option>
-            <option value="Kiswahili">Kiswahili</option>
-        </optgroup>
-        <optgroup label="Cluster group 2">
-            <option value="Chemistry">Chemistry</option>
-            <option value="Biology">Biology</option>
-            <option value="Physics">Physics</option>
-        </optgroup>
-        <optgroup label="Cluster group 3">
-            <option value="History and Government">History and Government</option>
-            <option value="Geography">Geography</option>
-            <option value="Christian Religious Education">Christian Religious Education</option>
-            <option value="Islamic Religious Education">Islamic Religious Education</option>
-            <option value="Hindu Religious Study">Hindu Religious Study</option>
-        </optgroup>
-        <optgroup label="Cluster group 4">
-            <option value="Home Science">Home Science</option>
-            <option value="Art and Design">Art and Design</option>
-            <option value="Agriculture">Agriculture</option>
-            <option value="Woodwork">Woodwork</option>
-            <option value="Metalwork">Metalwork</option>
-            <option value="Building Construction">Building Construction</option>
-            <option value="Power Mechanics">Power Mechanics</option>
-            <option value="Electricity">Electricity</option>
-            <option value="Drawing And Design">Drawing And Design</option>
-            <option value="Aviation Technology">Aviation Technology</option>
-            <option value="Computer Studies">Computer Studies</option>
-        </optgroup>
-        <optgroup label="Cluster group 5">
-            <option value="French">French</option>
-            <option value="German">German</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Kenya Sign Language">Kenya Sign Language</option>
-            <option value="Music">Music</option>
-            <option value="Business Studies">Business Studies</option>
-        </optgroup>
-    </select>;
-        let dropDownMenu4 = <select name="subjectFour" onChange={this.myChangeHandler} className="inputBox"> 
-         <optgroup label="Cluster group 1">
-             <option value=""></option>
-             <option value="English">English</option>
-             <option value="Mathematics">Mathematics</option>
-             <option value="Kiswahili">Kiswahili</option>
-         </optgroup>
-         <optgroup label="Cluster group 2">
-             <option value="Chemistry">Chemistry</option>
-             <option value="Biology">Biology</option>
-             <option value="Physics">Physics</option>
-         </optgroup>
-         <optgroup label="Cluster group 3">
-             <option value="History and Government">History and Government</option>
-             <option value="Geography">Geography</option>
-             <option value="Christian Religious Education">Christian Religious Education</option>
-             <option value="Islamic Religious Education">Islamic Religious Education</option>
-             <option value="Hindu Religious Study">Hindu Religious Study</option>
-         </optgroup>
-         <optgroup label="Cluster group 4">
-             <option value="Home Science">Home Science</option>
-             <option value="Art and Design">Art and Design</option>
-             <option value="Agriculture">Agriculture</option>
-             <option value="Woodwork">Woodwork</option>
-             <option value="Metalwork">Metalwork</option>
-             <option value="Building Construction">Building Construction</option>
-             <option value="Power Mechanics">Power Mechanics</option>
-             <option value="Electricity">Electricity</option>
-             <option value="Drawing And Design">Drawing And Design</option>
-             <option value="Aviation Technology">Aviation Technology</option>
-             <option value="Computer Studies">Computer Studies</option>
-         </optgroup>
-         <optgroup label="Cluster group 5">
-             <option value="French">French</option>
-             <option value="German">German</option>
-             <option value="Arabic">Arabic</option>
-             <option value="Kenya Sign Language">Kenya Sign Language</option>
-             <option value="Music">Music</option>
-             <option value="Business Studies">Business Studies</option>
-         </optgroup>
-     </select>;
-        let dropDownMenu5 = <select name="subjectFive" onChange={this.myChangeHandler} className="inputBox"> 
- <optgroup label="Cluster group 1">
-     <option value=""></option>
-     <option value="English">English</option>
-     <option value="Mathematics">Mathematics</option>
-     <option value="Kiswahili">Kiswahili</option>
- </optgroup>
- <optgroup label="Cluster group 2">
-     <option value="Chemistry">Chemistry</option>
-     <option value="Biology">Biology</option>
-     <option value="Physics">Physics</option>
- </optgroup>
- <optgroup label="Cluster group 3">
-     <option value="History and Government">History and Government</option>
-     <option value="Geography">Geography</option>
-     <option value="Christian Religious Education">Christian Religious Education</option>
-     <option value="Islamic Religious Education">Islamic Religious Education</option>
-     <option value="Hindu Religious Study">Hindu Religious Study</option>
- </optgroup>
- <optgroup label="Cluster group 4">
-     <option value="Home Science">Home Science</option>
-     <option value="Art and Design">Art and Design</option>
-     <option value="Agriculture">Agriculture</option>
-     <option value="Woodwork">Woodwork</option>
-     <option value="Metalwork">Metalwork</option>
-     <option value="Building Construction">Building Construction</option>
-     <option value="Power Mechanics">Power Mechanics</option>
-     <option value="Electricity">Electricity</option>
-     <option value="Drawing And Design">Drawing And Design</option>
-     <option value="Aviation Technology">Aviation Technology</option>
-     <option value="Computer Studies">Computer Studies</option>
- </optgroup>
- <optgroup label="Cluster group 5">
-     <option value="French">French</option>
-     <option value="German">German</option>
-     <option value="Arabic">Arabic</option>
-     <option value="Kenya Sign Language">Kenya Sign Language</option>
-     <option value="Music">Music</option>
-     <option value="Business Studies">Business Studies</option>
- </optgroup>
-</select>;       
-        let dropDownMenu6 = <select name="subjectSix" onChange={this.myChangeHandler} className="inputBox"> 
- <optgroup label="Cluster group 1">
-     <option value=""></option>
-     <option value="English">English</option>
-     <option value="Mathematics">Mathematics</option>
-     <option value="Kiswahili">Kiswahili</option>
- </optgroup>
- <optgroup label="Cluster group 2">
-     <option value="Chemistry">Chemistry</option>
-     <option value="Biology">Biology</option>
-     <option value="Physics">Physics</option>
- </optgroup>
- <optgroup label="Cluster group 3">
-     <option value="History and Government">History and Government</option>
-     <option value="Geography">Geography</option>
-     <option value="Christian Religious Education">Christian Religious Education</option>
-     <option value="Islamic Religious Education">Islamic Religious Education</option>
-     <option value="Hindu Religious Study">Hindu Religious Study</option>
- </optgroup>
- <optgroup label="Cluster group 4">
-     <option value="Home Science">Home Science</option>
-     <option value="Art and Design">Art and Design</option>
-     <option value="Agriculture">Agriculture</option>
-     <option value="Woodwork">Woodwork</option>
-     <option value="Metalwork">Metalwork</option>
-     <option value="Building Construction">Building Construction</option>
-     <option value="Power Mechanics">Power Mechanics</option>
-     <option value="Electricity">Electricity</option>
-     <option value="Drawing And Design">Drawing And Design</option>
-     <option value="Aviation Technology">Aviation Technology</option>
-     <option value="Computer Studies">Computer Studies</option>
- </optgroup>
- <optgroup label="Cluster group 5">
-     <option value="French">French</option>
-     <option value="German">German</option>
-     <option value="Arabic">Arabic</option>
-     <option value="Kenya Sign Language">Kenya Sign Language</option>
-     <option value="Music">Music</option>
-     <option value="Business Studies">Business Studies</option>
- </optgroup>
-</select>;       
-        let dropDownMenu7 = <select name="subjectSeven" onChange={this.myChangeHandler} className="inputBox"> 
- <optgroup label="Cluster group 1">
-     <option value=""></option>
-     <option value="English">English</option>
-     <option value="Mathematics">Mathematics</option>
-     <option value="Kiswahili">Kiswahili</option>
- </optgroup>
- <optgroup label="Cluster group 2">
-     <option value="Chemistry">Chemistry</option>
-     <option value="Biology">Biology</option>
-     <option value="Physics">Physics</option>
- </optgroup>
- <optgroup label="Cluster group 3">
-     <option value="History and Government">History and Government</option>
-     <option value="Geography">Geography</option>
-     <option value="Christian Religious Education">Christian Religious Education</option>
-     <option value="Islamic Religious Education">Islamic Religious Education</option>
-     <option value="Hindu Religious Study">Hindu Religious Study</option>
- </optgroup>
- <optgroup label="Cluster group 4">
-     <option value="Home Science">Home Science</option>
-     <option value="Art and Design">Art and Design</option>
-     <option value="Agriculture">Agriculture</option>
-     <option value="Woodwork">Woodwork</option>
-     <option value="Metalwork">Metalwork</option>
-     <option value="Building Construction">Building Construction</option>
-     <option value="Power Mechanics">Power Mechanics</option>
-     <option value="Electricity">Electricity</option>
-     <option value="Drawing And Design">Drawing And Design</option>
-     <option value="Aviation Technology">Aviation Technology</option>
-     <option value="Computer Studies">Computer Studies</option>
- </optgroup>
- <optgroup label="Cluster group 5">
-     <option value="French">French</option>
-     <option value="German">German</option>
-     <option value="Arabic">Arabic</option>
-     <option value="Kenya Sign Language">Kenya Sign Language</option>
-     <option value="Music">Music</option>
-     <option value="Business Studies">Business Studies</option>
- </optgroup>
-</select>;      
-        let dropDownMenu8 = <select name="subjectEight" onChange={this.myChangeHandler} className="inputBox"> 
- <optgroup label="Cluster group 1">
-     <option value=""></option>
-     <option value="English">English</option>
-     <option value="Mathematics">Mathematics</option>
-     <option value="Kiswahili">Kiswahili</option>
- </optgroup>
- <optgroup label="Cluster group 2">
-     <option value="Chemistry">Chemistry</option>
-     <option value="Biology">Biology</option>
-     <option value="Physics">Physics</option>
- </optgroup>
- <optgroup label="Cluster group 3">
-     <option value="History and Government">History and Government</option>
-     <option value="Geography">Geography</option>
-     <option value="Christian Religious Education">Christian Religious Education</option>
-     <option value="Islamic Religious Education">Islamic Religious Education</option>
-     <option value="Hindu Religious Study">Hindu Religious Study</option>
- </optgroup>
- <optgroup label="Cluster group 4">
-     <option value="Home Science">Home Science</option>
-     <option value="Art and Design">Art and Design</option>
-     <option value="Agriculture">Agriculture</option>
-     <option value="Woodwork">Woodwork</option>
-     <option value="Metalwork">Metalwork</option>
-     <option value="Building Construction">Building Construction</option>
-     <option value="Power Mechanics">Power Mechanics</option>
-     <option value="Electricity">Electricity</option>
-     <option value="Drawing And Design">Drawing And Design</option>
-     <option value="Aviation Technology">Aviation Technology</option>
-     <option value="Computer Studies">Computer Studies</option>
- </optgroup>
- <optgroup label="Cluster group 5">
-     <option value="French">French</option>
-     <option value="German">German</option>
-     <option value="Arabic">Arabic</option>
-     <option value="Kenya Sign Language">Kenya Sign Language</option>
-     <option value="Music">Music</option>
-     <option value="Business Studies">Business Studies</option>
- </optgroup>
-</select>;      
-        let dropDownMenu9 = <select name="subjectNine" onChange={this.myChangeHandler} className="inputBox"> 
- <optgroup label="Cluster group 1">
-     <option value=""></option>
-     <option value="English">English</option>
-     <option value="Mathematics">Mathematics</option>
-     <option value="Kiswahili">Kiswahili</option>
- </optgroup>
- <optgroup label="Cluster group 2">
-     <option value="Chemistry">Chemistry</option>
-     <option value="Biology">Biology</option>
-     <option value="Physics">Physics</option>
- </optgroup>
- <optgroup label="Cluster group 3">
-     <option value="History and Government">History and Government</option>
-     <option value="Geography">Geography</option>
-     <option value="Christian Religious Education">Christian Religious Education</option>
-     <option value="Islamic Religious Education">Islamic Religious Education</option>
-     <option value="Hindu Religious Study">Hindu Religious Study</option>
- </optgroup>
- <optgroup label="Cluster group 4">
-     <option value="Home Science">Home Science</option>
-     <option value="Art and Design">Art and Design</option>
-     <option value="Agriculture">Agriculture</option>
-     <option value="Woodwork">Woodwork</option>
-     <option value="Metalwork">Metalwork</option>
-     <option value="Building Construction">Building Construction</option>
-     <option value="Power Mechanics">Power Mechanics</option>
-     <option value="Electricity">Electricity</option>
-     <option value="Drawing And Design">Drawing And Design</option>
-     <option value="Aviation Technology">Aviation Technology</option>
-     <option value="Computer Studies">Computer Studies</option>
- </optgroup>
- <optgroup label="Cluster group 5">
-     <option value="French">French</option>
-     <option value="German">German</option>
-     <option value="Arabic">Arabic</option>
-     <option value="Kenya Sign Language">Kenya Sign Language</option>
-     <option value="Music">Music</option>
-     <option value="Business Studies">Business Studies</option>
- </optgroup>
-</select>;       
+        let dropDownMenu1 = this.DropDown("subjectOne");
+        let dropDownMenu2 = this.DropDown("subjectTwo");
+        let dropDownMenu3 = this.DropDown("subjectThree");
+        let dropDownMenu4 = this.DropDown("subjectFour");
+        let dropDownMenu5 = this.DropDown("subjectFive");
+        let dropDownMenu6 = this.DropDown("subjectSix");  
+        let dropDownMenu7 = this.DropDown("subjectSeven");
+        let dropDownMenu8 = this.DropDown("subjectEight"); 
+        let dropDownMenu9 = this.DropDown("subjectNine");     
        let subBtn = '';
-       if(this.state.subjectOne && this.state.subjectOneGrade){
-            subTwo = <div className="subjectOptions"><lable className="l1">Enter subject 2</lable>{dropDownMenu2}<input type="text" onChange={this.myChangeHandler} name="subjectTwoGrade" className="inputBoxSG"></input></div>;
-            subOneDisplay = <div>{this.state.subjectOne} ------ {this.state.subjectOneGrade}</div>;
-        }else{
-            subTwo = '';
-            subOneDisplay = '';
-        }
-        if(this.state.subjectTwo && this.state.subjectTwoGrade){
-            subThree =<div className="subjectOptions"><lable className="l1">Enter subject 3</lable>{dropDownMenu3}<input type="text" onChange={this.myChangeHandler} name="subjectThreeGrade" className="inputBoxSG"></input></div>;
-            subTwoDisplay = <div>{this.state.subjectTwo} ------ {this.state.subjectTwoGrade}</div>;
-        }else{
-            subThree = '';
-            subTwoDisplay = '';
-        }
-        if(this.state.subjectThree && this.state.subjectThreeGrade){
-            subFour =<div className="subjectOptions"><lable className="l1">Enter subject 4</lable>{dropDownMenu4}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectFourGrade"></input></div>;
-            subThreeDisplay = <div>{this.state.subjectThree} ------ {this.state.subjectThreeGrade}</div>;
-        }else{
-            subFour = ""
-            subThreeDisplay = '';
-        }
-        if(this.state.subjectFour && this.state.subjectFourGrade){
-            subFive =<div className="subjectOptions"><lable className="l1">Enter subject 5</lable>{dropDownMenu5}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectFiveGrade"></input></div>;
-            subFourDisplay = <div>{this.state.subjectFour} ------ {this.state.subjectFourGrade}</div>;
-            
-        }else{
-            subFive = ""
-            subFourDisplay = '';
-        }
-        if(this.state.subjectFive && this.state.subjectFiveGrade){
-            subSix =<div className="subjectOptions"><lable className="l1">Enter subject 6</lable>{dropDownMenu6}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectSixGrade"></input></div>;
-            subFiveDisplay = <div>{this.state.subjectFive} ------ {this.state.subjectFiveGrade}</div>;
-        }else{
-            subSix = ""
-            subFiveDisplay = '';
-        }
-        if(this.state.subjectSix && this.state.subjectSixGrade){
-            subSeven =<div className="subjectOptions"><lable className="l1">Enter subject 7</lable>{dropDownMenu7}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectSevenGrade"></input></div>;
-            subSixDisplay = <div>{this.state.subjectSix} ------ {this.state.subjectSixGrade}</div>;
-        }else{
-            subSeven = "";
-            subSixDisplay = '';
-        }
-        if(this.state.subjectSeven && this.state.subjectSevenGrade){
-            subEight =<div className="subjectOptions"><lable className="l1">Enter subject 8</lable>{dropDownMenu8}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectEightGrade"></input></div>;
-            subSevenDisplay = <div>{this.state.subjectSeven} ------ {this.state.subjectSevenGrade}</div>;
-            subBtn = <button className="submitBtn" type="submit">submit</button>;    
-        }else{
-            subEight = "";
-            subSevenDisplay = "";
-        }
-        if(this.state.subjectEight && this.state.subjectEightGrade){
-            subNine = <div className="subjectOptions"><lable className="l1">Enter subject 9</lable>{dropDownMenu9}<input type="text" className="inputBoxSG" onChange={this.myChangeHandler} name="subjectNineGrade"></input></div>;
-            subEightDisplay = <div>{this.state.subjectEight} ------ {this.state.subjectEightGrade}</div>;
-        }else{
-            subNine = ""
-            subEightDisplay = '';
-        }
-        if(this.state.subjectNine && this.state.subjectNineGrade){
-            subNineDisplay = <div>{this.state.subjectNine} ------ {this.state.subjectNineGrade}</div>;
-        }else{
-            subNineDisplay = '';
-        }
        
+    
+    
+   
     return(
         <div>
             <p className="txtPar">
@@ -505,27 +149,28 @@ class FormBody extends React.Component {
                             <lable className="l1">Enter subject 1</lable>
                             {dropDownMenu1}<input type="text" onChange={this.myChangeHandler} name="subjectOneGrade" className="inputBoxSG"></input>
                         </div>
-                        {subTwo}
-                        {subThree}
-                        {subFour}
-                        {subFive}
-                        {subSix}
-                        {subSeven}
-                        {subEight}
-                        {subNine}
+                        {this.CheckToDisplayOpt(this.state.subjectOne,this.state.subjectOneGrade,"subTwo","Enter subject 2",dropDownMenu2,"subjectTwoGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectTwo,this.state.subjectTwoGrade,"subThree","Enter subject 3",dropDownMenu3,"subjectThreeGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectThree,this.state.subjectThreeGrade,"subFour","Enter subject 4",dropDownMenu4,"subjectFourGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectFour,this.state.subjectFourGrade,"subFive","Enter subject 5",dropDownMenu5,"subjectFiveGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectFive,this.state.subjectFiveGrade,"subSix","Enter subject 6",dropDownMenu6,"subjectSixGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectSix,this.state.subjectSixGrade,"subSeven","Enter subject 7",dropDownMenu7,"subjectSevenGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectSeven,this.state.subjectSevenGrade,"subEight","Enter subject 8",dropDownMenu8,"subjectEightGrade")}
+                        {this.CheckToDisplayOpt(this.state.subjectEight,this.state.subjectEightGrade,"subNine","Enter subject 9",dropDownMenu9,"subjectNineGrade")}
                     </div>
                     <div className="resultContainer">  
                     <p>Your selected options</p>  
                     <span>KCSE mean grade - {this.state.meanGrade}</span>
-                    {subOneDisplay}
-                    {subTwoDisplay}
-                    {subThreeDisplay}
-                    {subFourDisplay}
-                    {subFiveDisplay}
-                    {subSixDisplay}
-                    {subSevenDisplay}
-                    {subEightDisplay}
-                    {subNineDisplay}
+      
+                    {this.CheckToDisplayResults(this.state.subjectOne,this.state.subjectOneGrade,subTwoDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectTwo,this.state.subjectTwoGrade,subThreeDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectThree,this.state.subjectThreeGrade,subFourDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectFour,this.state.subjectFourGrade,subFiveDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectFive,this.state.subjectFiveGrade,subSixDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectSix,this.state.subjectSixGrade,subSevenDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectSeven,this.state.subjectSevenGrade,subEightDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectEight,this.state.subjectEightGrade,subNineDisplay)}
+                    {this.CheckToDisplayResults(this.state.subjectNine,this.state.subjectNineGrade,null)}
                     </div>
                  </div>
                  {subBtn}
